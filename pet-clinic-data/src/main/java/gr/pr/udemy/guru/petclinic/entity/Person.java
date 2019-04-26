@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Person {
+public class Person extends BaseEntity {
 
 	private String firstName;
 
