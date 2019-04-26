@@ -7,14 +7,14 @@
 	<parent>
 		<artifactId>pet-clinic</artifactId>
 		<groupId>gr.pr.udemy.guru</groupId>
-		<version>0.0.1</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<artifactId>pet-clinic-data</artifactId>
 			<groupId>gr.pr.udemy.guru</groupId>
-			<version>0.0.1</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
