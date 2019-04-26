@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>gr.pr.udemy.guru</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>pet-clinic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>spring-guru-pet-clinic</name>

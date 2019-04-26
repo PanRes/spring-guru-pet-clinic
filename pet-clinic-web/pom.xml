@@ -7,7 +7,7 @@
 	<artifactId>pet-clinic-web</artifactId>
 
 	<parent>
-		<artifactId>demo</artifactId>
+		<artifactId>pet-clinic</artifactId>
 		<groupId>gr.pr.udemy.guru</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
