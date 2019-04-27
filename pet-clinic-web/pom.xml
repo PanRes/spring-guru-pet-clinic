@@ -9,7 +9,6 @@
 		<groupId>gr.pr.udemy.guru</groupId>
 		<version>0.0.2-SNAPSHOT</version>
 	</parent>
-
 	<dependencies>
 		<dependency>
 			<artifactId>pet-clinic-data</artifactId>

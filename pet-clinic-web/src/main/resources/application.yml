@@ -2,3 +2,6 @@
 #  banner:
 #    image:
 #      location: john-wick-chapter-2.jpg
+
+server:
+  port: 1313
