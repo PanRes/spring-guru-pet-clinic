@@ -4,8 +4,7 @@ import gr.pr.udemy.guru.petclinic.entity.Owner;
 import gr.pr.udemy.guru.petclinic.entity.Vet;
 import gr.pr.udemy.guru.petclinic.service.OwnerService;
 import gr.pr.udemy.guru.petclinic.service.VetService;
-import gr.pr.udemy.guru.petclinic.service.map.OwnerServiceMap;
-import gr.pr.udemy.guru.petclinic.service.map.VetServiceMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +14,10 @@ public class DataInitializer implements CommandLineRunner {
 	private final OwnerService ownerService;
 	private final VetService vetService;
 
-	public DataInitializer() {
-		this.ownerService = new OwnerServiceMap();
-		this.vetService = new VetServiceMap();
+	@Autowired
+	public DataInitializer(OwnerService ownerService, VetService vetService) {
+		this.ownerService = ownerService;
+		this.vetService = vetService;
 	}
 
 	@Override
