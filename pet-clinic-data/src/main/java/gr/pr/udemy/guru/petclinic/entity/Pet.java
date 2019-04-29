@@ -16,4 +16,11 @@ public class Pet extends BaseEntity {
 	private Owner owner;
 
 	private LocalDate birthDate;
+
+	public Pet(Long id, PetType petType, Owner owner, LocalDate birthDate) {
+		super(id);
+		this.petType = petType;
+		this.owner = owner;
+		this.birthDate = birthDate;
+	}
 }
