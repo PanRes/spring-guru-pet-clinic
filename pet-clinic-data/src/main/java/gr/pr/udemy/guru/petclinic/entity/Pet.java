@@ -1,14 +1,7 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Pet extends BaseEntity {
 
 	private PetType petType;
@@ -17,10 +10,27 @@ public class Pet extends BaseEntity {
 
 	private LocalDate birthDate;
 
-	public Pet(Long id, PetType petType, Owner owner, LocalDate birthDate) {
-		super(id);
+	public PetType getPetType() {
+		return this.petType;
+	}
+
+	public Owner getOwner() {
+		return this.owner;
+	}
+
+	public LocalDate getBirthDate() {
+		return this.birthDate;
+	}
+
+	public void setPetType(PetType petType) {
 		this.petType = petType;
+	}
+
+	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 }
