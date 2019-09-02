@@ -26,7 +26,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 			map.put(object.getId(), object);
 		}
 		else {
-			throw new RuntimeException("Object is null");
+			throw new RuntimeException(object.getClass() + " is null");
 		}
 
 		return object;
