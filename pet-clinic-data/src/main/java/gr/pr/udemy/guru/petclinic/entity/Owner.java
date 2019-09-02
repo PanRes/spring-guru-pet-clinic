@@ -8,10 +8,9 @@ public class Owner extends Person {
 	private String address;
 	private String city;
 	private String telephone;
-	private Set<Pet> pets;
+	private Set<Pet> pets = new HashSet<>();
 
 	public Owner() {
-		pets = new HashSet<>();
 	}
 
 	public Owner(String firstName, String lastName, String address, String city, String telephone) {
@@ -19,7 +18,6 @@ public class Owner extends Person {
 		this.address = address;
 		this.city = city;
 		this.telephone = telephone;
-		this.pets = new HashSet<>();
 	}
 
 	public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {

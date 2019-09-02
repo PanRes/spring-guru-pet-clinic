@@ -12,6 +12,12 @@ public class Pet extends BaseEntity {
 	public Pet() {
 	}
 
+	public Pet(String name, PetType petType, LocalDate birthDate) {
+		this.name = name;
+		this.petType = petType;
+		this.birthDate = birthDate;
+	}
+
 	public Pet(String name, PetType petType, Owner owner, LocalDate birthDate) {
 		this.name = name;
 		this.petType = petType;
