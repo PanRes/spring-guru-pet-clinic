@@ -1,30 +1,33 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Vet extends Person {
 
-	private Specialty specialty;
+	private Set<Specialty> specialties = new HashSet<>();
 
 	public Vet() {
 	}
 
-	public Vet(Specialty specialty) {
-		this.specialty = specialty;
+	public Vet(Set<Specialty> specialties) {
+		this.specialties = specialties;
 	}
 
 	public Vet(String firstName, String lastName) {
 		super(firstName, lastName);
 	}
 
-	public Vet(String firstName, String lastName, Specialty specialty) {
+	public Vet(String firstName, String lastName, Set<Specialty> specialties) {
 		super(firstName, lastName);
-		this.specialty = specialty;
+		this.specialties = specialties;
 	}
 
-	public Specialty getSpecialty() {
-		return specialty;
+	public Set<Specialty> getSpecialty() {
+		return specialties;
 	}
 
-	public void setSpecialty(Specialty specialty) {
-		this.specialty = specialty;
+	public void setSpecialty(Set<Specialty> specialties) {
+		this.specialties = specialties;
 	}
 }
