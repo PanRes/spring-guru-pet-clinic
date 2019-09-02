@@ -1,9 +1,6 @@
 package gr.pr.udemy.guru.petclinic.bootstarp;
 
-import gr.pr.udemy.guru.petclinic.entity.Owner;
-import gr.pr.udemy.guru.petclinic.entity.Pet;
-import gr.pr.udemy.guru.petclinic.entity.PetType;
-import gr.pr.udemy.guru.petclinic.entity.Vet;
+import gr.pr.udemy.guru.petclinic.entity.*;
 import gr.pr.udemy.guru.petclinic.service.OwnerService;
 import gr.pr.udemy.guru.petclinic.service.PetTypeService;
 import gr.pr.udemy.guru.petclinic.service.VetService;
@@ -25,7 +22,12 @@ public class DataInitializer implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		if (petTypeService.findAll().size() == 0) {
+			loadData();
+		}
+	}
 
+	private void loadData() {
 		PetType dog = new PetType("dog");
 		petTypeService.save(dog);
 
@@ -47,15 +49,14 @@ public class DataInitializer implements CommandLineRunner {
 
 		log.info("Owners Initialized");
 
-		Vet vet1 = new Vet();
-		vet1.setFirstName("Filippos");
-		vet1.setLastName("Georgantas");
+		Vet vet1 = new Vet("Filippos", "Georgantas");
+		vet1.addSpecialty(new Specialty("radiology"));
+		vet1.addSpecialty(new Specialty("surgery"));
 
 		vetService.save(vet1);
 
-		Vet vet2 = new Vet();
-		vet2.setFirstName("Angel");
-		vet2.setLastName("Pearl");
+		Vet vet2 = new Vet("Angel", "Pearl");
+		vet2.addSpecialty(new Specialty("dentistry"));
 
 		vetService.save(vet2);
 
