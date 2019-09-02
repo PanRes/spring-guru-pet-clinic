@@ -33,4 +33,9 @@ public class SpecialtyServiceMap extends AbstractMapService<Specialty, Long> imp
 	public Specialty save(Specialty specialty) {
 		return super.save(specialty);
 	}
+
+	@Override
+	public Iterable<Specialty> saveAll(Iterable<Specialty> specialties) {
+		return super.saveAll(specialties);
+	}
 }

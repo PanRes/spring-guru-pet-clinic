@@ -52,4 +52,9 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 			return null;
 		}
 	}
+
+	@Override
+	public Iterable<Pet> saveAll(Iterable<Pet> pets) {
+		return super.saveAll(pets);
+	}
 }

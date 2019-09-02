@@ -7,6 +7,7 @@ public interface BaseCrudService<T, ID> {
 	T findById(ID id);
 	Set<T> findAll();
 	T save(T object);
+	Iterable<T> saveAll(Iterable<T> objects);
 	void delete(T object);
 	void deleteById(ID id);
 

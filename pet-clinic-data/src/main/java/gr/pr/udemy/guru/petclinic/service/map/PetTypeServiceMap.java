@@ -33,4 +33,9 @@ public class PetTypeServiceMap extends AbstractMapService<PetType, Long> impleme
 	public PetType save(PetType petType) {
 		return super.save(petType);
 	}
+
+	@Override
+	public Iterable<PetType> saveAll(Iterable<PetType> petTypes) {
+		return super.saveAll(petTypes);
+	}
 }

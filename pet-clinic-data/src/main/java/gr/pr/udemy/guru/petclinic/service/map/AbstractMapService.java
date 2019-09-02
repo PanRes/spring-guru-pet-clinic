@@ -40,6 +40,11 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 		map.entrySet().removeIf(idtEntry -> idtEntry.getValue().equals(object));
 	}
 
+	Iterable<T> saveAll(Iterable<T> objects) {
+		objects.forEach(this::save);
+		return objects;
+	}
+
 	private long getNextId() {
 		Long nextInt = null;
 

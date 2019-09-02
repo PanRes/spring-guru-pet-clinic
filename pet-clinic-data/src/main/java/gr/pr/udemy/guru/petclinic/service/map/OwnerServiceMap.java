@@ -61,4 +61,9 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 			return null;
 		}
 	}
+
+	@Override
+	public Iterable<Owner> saveAll(Iterable<Owner> owners) {
+		return super.saveAll(owners);
+	}
 }
