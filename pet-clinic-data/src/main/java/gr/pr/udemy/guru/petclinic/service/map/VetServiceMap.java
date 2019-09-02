@@ -42,10 +42,6 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 						.filter(specialty -> specialty.getId() == null)
 						.forEach(specialtyService::save);
 			}
-			else {
-				throw new RuntimeException("Specialty is required");
-			}
-
 			return super.save(vet);
 		}
 		else {
