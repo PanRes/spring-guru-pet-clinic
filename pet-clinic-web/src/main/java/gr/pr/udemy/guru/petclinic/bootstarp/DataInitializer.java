@@ -7,11 +7,13 @@ import gr.pr.udemy.guru.petclinic.service.OwnerService;
 import gr.pr.udemy.guru.petclinic.service.PetTypeService;
 import gr.pr.udemy.guru.petclinic.service.VetService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
+@CommonsLog
 public class DataInitializer implements CommandLineRunner {
 
 	private final OwnerService ownerService;
@@ -39,7 +41,7 @@ public class DataInitializer implements CommandLineRunner {
 
 		ownerService.save(owner2);
 
-		System.out.println("Owners Initialized");
+		log.info("Owners Initialized");
 
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Filippos");
@@ -53,7 +55,7 @@ public class DataInitializer implements CommandLineRunner {
 
 		vetService.save(vet2);
 
-		System.out.println("Vets Initialized");
+		log.info("Vets Initialized");
 
 	}
 }
