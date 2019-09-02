@@ -3,8 +3,15 @@ package gr.pr.udemy.guru.petclinic.entity;
 public class Person extends BaseEntity {
 
 	private String firstName;
-
 	private String lastName;
+
+	Person() {
+	}
+
+	Person(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
 	public String getFirstName() {
 		return this.firstName;
