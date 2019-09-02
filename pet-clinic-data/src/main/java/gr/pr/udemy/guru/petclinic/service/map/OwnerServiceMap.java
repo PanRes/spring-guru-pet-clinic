@@ -48,7 +48,12 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 			if (owner.getPets() != null) {
 				owner.getPets().stream()
 						.filter(pet -> pet.getId() == null)
-						.forEach(petService::save);
+						.forEach(pet -> {
+							if (!owner.equals(pet.getOwner())) {
+								pet.setOwner(owner);
+							}
+							petService.save(pet);
+						});
 			}
 			return super.save(owner);
 		}
