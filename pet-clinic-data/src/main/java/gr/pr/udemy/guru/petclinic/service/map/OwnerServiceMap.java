@@ -2,12 +2,17 @@ package gr.pr.udemy.guru.petclinic.service.map;
 
 import gr.pr.udemy.guru.petclinic.entity.Owner;
 import gr.pr.udemy.guru.petclinic.service.OwnerService;
+import gr.pr.udemy.guru.petclinic.service.PetService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+	private final PetService petService;
 
 	@Override
 	public Owner findByLastName(String lastName) {
@@ -39,6 +44,16 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
 	@Override
 	public Owner save(Owner owner) {
-		return super.save(owner);
+		if (owner != null) {
+			if (owner.getPets() != null) {
+				owner.getPets().stream()
+						.filter(pet -> pet.getId() == null)
+						.forEach(petService::save);
+			}
+			return super.save(owner);
+		}
+		else {
+			return null;
+		}
 	}
 }
