@@ -1,13 +1,18 @@
 package gr.pr.udemy.guru.petclinic.service.map;
 
 import gr.pr.udemy.guru.petclinic.entity.Vet;
+import gr.pr.udemy.guru.petclinic.service.SpecialtyService;
 import gr.pr.udemy.guru.petclinic.service.VetService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+	private final SpecialtyService specialtyService;
 
 	@Override
 	public Vet findById(Long id) {
@@ -25,13 +30,27 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 	}
 
 	@Override
-	public void delete(Vet owner) {
-		super.delete(owner);
+	public void delete(Vet vet) {
+		super.delete(vet);
 	}
 
 	@Override
-	public Vet save(Vet owner) {
-		return super.save(owner);
+	public Vet save(Vet vet) {
+		if (vet != null){
+			if (vet.getSpecialties() != null) {
+				vet.getSpecialties().stream()
+						.filter(specialty -> specialty.getId() == null)
+						.forEach(specialtyService::save);
+			}
+			else {
+				throw new RuntimeException("Specialty is required");
+			}
+
+			return super.save(vet);
+		}
+		else {
+			return null;
+		}
 	}
 
 	@Override
