@@ -1,6 +1,7 @@
 package gr.pr.udemy.guru.petclinic.bootstarp;
 
 import gr.pr.udemy.guru.petclinic.entity.Owner;
+import gr.pr.udemy.guru.petclinic.entity.Pet;
 import gr.pr.udemy.guru.petclinic.entity.PetType;
 import gr.pr.udemy.guru.petclinic.entity.Vet;
 import gr.pr.udemy.guru.petclinic.service.OwnerService;
@@ -10,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 @RequiredArgsConstructor
@@ -29,15 +32,16 @@ public class DataInitializer implements CommandLineRunner {
 		PetType cat = new PetType("cat");
 		petTypeService.save(cat);
 
-		Owner owner1 = new Owner();
-		owner1.setFirstName("Panagiotis");
-		owner1.setLastName("Ressos");
+		Owner owner1 = new Owner("Panagiotis", "Ressos", "Patriarxou Grigoriou 15", "Kalithea",
+				"1234567890");
+		owner1.addPet(new Pet("Rex", dog, owner1, LocalDate.of(2016, 06,05)));
+		owner1.addPet(new Pet("Krypto", dog, owner1, LocalDate.of(2014, 06,12)));
 
 		ownerService.save(owner1);
 
-		Owner owner2 = new Owner();
-		owner2.setFirstName("Makis");
-		owner2.setLastName("Kotsovos");
+		Owner owner2 = new Owner("Makis", "Kotsovos", "Agiou Ierotheou 125", "Peristeri",
+				"0987654321");
+		owner2.addPet(new Pet("Mjolnir", cat, LocalDate.of(2017,05,05)));
 
 		ownerService.save(owner2);
 
