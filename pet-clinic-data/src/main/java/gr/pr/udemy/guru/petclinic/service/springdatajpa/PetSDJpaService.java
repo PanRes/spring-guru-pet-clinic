@@ -1,4 +1,4 @@
-package gr.pr.udemy.guru.petclinic.service.springdatajpa.map;
+package gr.pr.udemy.guru.petclinic.service.springdatajpa;
 
 import gr.pr.udemy.guru.petclinic.entity.Pet;
 import gr.pr.udemy.guru.petclinic.repository.PetRepository;
