@@ -4,12 +4,14 @@ import gr.pr.udemy.guru.petclinic.entity.Pet;
 import gr.pr.udemy.guru.petclinic.service.PetService;
 import gr.pr.udemy.guru.petclinic.service.PetTypeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
+@Profile({"default","map"})
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
 	private final PetTypeService petTypeService;
