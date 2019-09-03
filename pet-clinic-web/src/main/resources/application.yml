@@ -7,5 +7,7 @@ server:
   port: 1313
 
 spring:
+#  profiles:
+#    active: springdatajpa
   messages:
     basename: messages/messages
