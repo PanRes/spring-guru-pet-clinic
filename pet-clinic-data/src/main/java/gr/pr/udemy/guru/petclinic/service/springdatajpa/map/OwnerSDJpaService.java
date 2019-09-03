@@ -54,7 +54,7 @@ public class OwnerSDJpaService implements OwnerService {
 	public Set<Owner> saveAll(Iterable<Owner> owners) {
 		Set<Owner> ownersToReturn = new HashSet<>();
 
-		ownerRepository.findAll().forEach(ownersToReturn::add);
+		ownerRepository.saveAll(owners).forEach(ownersToReturn::add);
 
 		return ownersToReturn;
 	}
