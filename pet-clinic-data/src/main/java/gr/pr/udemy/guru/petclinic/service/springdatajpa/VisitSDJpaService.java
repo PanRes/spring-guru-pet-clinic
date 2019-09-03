@@ -4,6 +4,7 @@ import gr.pr.udemy.guru.petclinic.entity.Visit;
 import gr.pr.udemy.guru.petclinic.repository.VisitRepository;
 import gr.pr.udemy.guru.petclinic.service.VisitService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
+@Profile("springdatajpa")
 public class VisitSDJpaService implements VisitService {
 
 	private final VisitRepository visitRepository;
