@@ -1,8 +1,11 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+@Data
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -20,19 +23,10 @@ public class Person extends BaseEntity {
 		this.lastName = lastName;
 	}
 
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	public void setFirstName(String firstName) {
+	Person(long id, String firstName, String lastName) {
+		super(id);
 		this.firstName = firstName;
-	}
-
-	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 }
