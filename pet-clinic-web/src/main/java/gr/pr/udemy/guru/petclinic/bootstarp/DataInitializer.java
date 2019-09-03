@@ -4,6 +4,7 @@ import gr.pr.udemy.guru.petclinic.entity.*;
 import gr.pr.udemy.guru.petclinic.service.OwnerService;
 import gr.pr.udemy.guru.petclinic.service.PetTypeService;
 import gr.pr.udemy.guru.petclinic.service.VetService;
+import gr.pr.udemy.guru.petclinic.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +20,7 @@ public class DataInitializer implements CommandLineRunner {
 	private final OwnerService ownerService;
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
+	private final VisitService visitService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -43,9 +45,13 @@ public class DataInitializer implements CommandLineRunner {
 
 		Owner owner2 = new Owner("Makis", "Kotsovos", "Agiou Ierotheou 125", "Peristeri",
 				"0987654321");
-		owner2.addPet(new Pet("Mjolnir", cat, LocalDate.of(2017,05,05)));
+		Pet meowMeow = new Pet("Mjolnir", cat, LocalDate.of(2017,05,05));
+		owner2.addPet(meowMeow);
 
 		ownerService.save(owner2);
+
+		Visit catVisit = new Visit(LocalDate.now(), "Whose ever holds this cat", meowMeow);
+		visitService.save(catVisit);
 
 		log.info("Owners Initialized");
 
