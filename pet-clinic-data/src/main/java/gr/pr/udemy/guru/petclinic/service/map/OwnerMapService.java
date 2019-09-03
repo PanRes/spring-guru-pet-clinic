@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	private final PetService petService;
 
