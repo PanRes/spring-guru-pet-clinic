@@ -1,11 +1,13 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-@Data
+@Data @NoArgsConstructor @AllArgsConstructor
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -14,14 +16,6 @@ public class Person extends BaseEntity {
 
 	@Column(name = "last_name", length = 50)
 	private String lastName;
-
-	Person() {
-	}
-
-	Person(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
 
 	Person(long id, String firstName, String lastName) {
 		super(id);
