@@ -1,1 +1,1 @@
-Training project from udemy training
+Training project from udemy course
