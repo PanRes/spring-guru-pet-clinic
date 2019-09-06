@@ -5,6 +5,7 @@ import gr.pr.udemy.guru.petclinic.service.OwnerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -89,7 +90,6 @@ class OwnerMapServiceTest {
 
 	@Test
 	void saveAll() {
-/*
 		Set<Owner> owners = new HashSet<>();
 
 		owners.add(Owner.builder().id(2L).build());
@@ -99,7 +99,6 @@ class OwnerMapServiceTest {
 
 		assertEquals(2, ownersSaved.size());
 		assertEquals(3, ownerService.findAll().size());
-*/
 
 	}
 }

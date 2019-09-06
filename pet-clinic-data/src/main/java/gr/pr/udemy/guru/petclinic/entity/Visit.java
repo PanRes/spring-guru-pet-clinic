@@ -5,7 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter()
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@Builder
 @Entity
 @Table(name = "visit")
 public class Visit extends BaseEntity{

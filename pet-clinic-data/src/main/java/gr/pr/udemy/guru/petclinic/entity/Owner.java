@@ -1,15 +1,16 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data @NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter()
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "owner")
 public class Owner extends Person {
@@ -50,6 +51,10 @@ public class Owner extends Person {
 		if (pets != null) {
 			this.pets = pets;
 		}
+	}
+
+	public Owner(Long id) {
+		super(id);
 	}
 
 	public void addPet(Pet pet) {

@@ -7,7 +7,12 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter()
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@Builder
 @Entity
 @Table(name = "pets")
 public class Pet extends BaseEntity {

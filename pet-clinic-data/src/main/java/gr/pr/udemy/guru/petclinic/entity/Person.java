@@ -1,13 +1,16 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-@Data @NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter()
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -23,4 +26,7 @@ public class Person extends BaseEntity {
 		this.lastName = lastName;
 	}
 
+	public Person(Long id) {
+		super(id);
+	}
 }
