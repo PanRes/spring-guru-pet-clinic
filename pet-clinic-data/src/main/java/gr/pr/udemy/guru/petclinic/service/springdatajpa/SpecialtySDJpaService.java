@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-@Profile("springdatajpa")
+@Profile("springDataJpa")
 public class SpecialtySDJpaService implements SpecialtyService {
 
 	private final SpecialtyRepository specialtyRepository;

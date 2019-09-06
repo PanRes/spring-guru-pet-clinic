@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-@Profile("springdatajpa")
+@Profile("springDataJpa")
 public class OwnerSDJpaService implements OwnerService {
 
 	private final OwnerRepository ownerRepository;
