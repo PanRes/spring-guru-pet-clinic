@@ -1,7 +1,7 @@
 package gr.pr.udemy.guru.petclinic.controller;
 
 import gr.pr.udemy.guru.petclinic.service.OwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("owners")
+@RequiredArgsConstructor
 public class OwnerController {
 
 	private final OwnerService ownerService;
@@ -23,11 +24,6 @@ public class OwnerController {
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
 		dataBinder.setDisallowedFields("id");
-	}
-
-	@Autowired
-	public OwnerController(OwnerService ownerService) {
-		this.ownerService = ownerService;
 	}
 
 	@RequestMapping({"","/","index","index.html"})
