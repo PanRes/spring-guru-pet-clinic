@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -68,4 +70,12 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 	public Iterable<Owner> saveAll(Iterable<Owner> owners) {
 		return super.saveAll(owners);
 	}
+
+	@Override
+	public List<Owner> findByLastNameLike(String lastName) {
+		return this.findAll().stream()
+				.filter(owner -> owner.getLastName().contains(lastName))
+				.collect(Collectors.toList());
+	}
+
 }
