@@ -7,12 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -23,7 +21,7 @@ public class OwnerController {
 	private final OwnerService ownerService;
 
 	/**
-	 * Do not allow mvc to edit id field
+	 * Do not allow model to get id field
 	 */
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
@@ -74,6 +72,43 @@ public class OwnerController {
 		modelAndView.addObject(ownerService.findById(ownerId));
 
 		return modelAndView;
+	}
+
+	@GetMapping("new")
+	public String createOwner(Model model) {
+		model.addAttribute("owner", new Owner());
+
+		return "owners/createOrUpdateOwnerForm";
+	}
+
+	@PostMapping("new")
+	public String saveNewOwner(@Valid Owner owner, BindingResult result) {
+		if (result.hasErrors()) {
+			return "owners/createOrUpdateOwnerForm";
+		}
+		else {
+			owner = ownerService.save(owner);
+			return "redirect:/owners/" + owner.getId();
+		}
+	}
+
+	@GetMapping("{ownerId}/edit")
+	public String updateOwner(@PathVariable Long ownerId, Model model) {
+		model.addAttribute("owner", ownerService.findById(ownerId));
+
+		return "owners/createOrUpdateOwnerForm";
+	}
+
+	@PostMapping("{ownerId}/edit")
+	public String saveUpdatedOwner(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId) {
+		if (result.hasErrors()) {
+			return "owners/createOrUpdateOwnerForm";
+		}
+		else {
+			owner.setId(ownerId);
+			owner = ownerService.save(owner);
+			return "redirect:/owners/" + owner.getId();
+		}
 	}
 
 }
