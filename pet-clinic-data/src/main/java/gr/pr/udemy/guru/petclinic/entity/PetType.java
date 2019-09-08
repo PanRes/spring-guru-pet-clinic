@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Setter()
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Builder
 @Entity
 @Table(name = "types")
 public class PetType extends BaseEntity {
@@ -19,4 +18,9 @@ public class PetType extends BaseEntity {
 	@Column(name = "name", nullable = false)
 	private String name;
 
+	@Builder
+	public PetType(Long id, String name) {
+		super(id);
+		this.name = name;
+	}
 }
