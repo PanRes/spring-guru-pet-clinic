@@ -104,7 +104,6 @@ class OwnerControllerTest {
 
 	}
 
-/*
 	@Test
 	void findManyByLastNameLikeNone() throws Exception {
 		when(ownerService.findByLastNameLike(anyString())).thenReturn(new ArrayList<>());
@@ -112,8 +111,9 @@ class OwnerControllerTest {
 		mockMvc.perform(get("/owners"))
 				.andExpect(status().isOk())
 				.andExpect(view().name("owners/findOwners"))
-				.andExpect(model().attribute("owners", isNull()));
+				.andExpect(model().attributeDoesNotExist("owners"))
+				.andExpect(model().attribute("owner", hasProperty("lastName", is(""))));
 
 	}
-*/
+
 }
