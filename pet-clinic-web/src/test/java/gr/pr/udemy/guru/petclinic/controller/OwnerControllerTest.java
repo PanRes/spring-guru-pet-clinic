@@ -87,7 +87,7 @@ class OwnerControllerTest {
 	void findManyByLastNameLikeMultiple() throws Exception {
 		when(ownerService.findByLastNameLike(anyString())).thenReturn(new ArrayList<>(owners));
 
-		mockMvc.perform(get("/owners/find/results"))
+		mockMvc.perform(get("/owners"))
 				.andExpect(status().isOk())
 				.andExpect(view().name("owners/ownersList"))
 				.andExpect(model().attribute("selections", hasSize(owners.size())));
@@ -98,7 +98,7 @@ class OwnerControllerTest {
 	void findManyByLastNameLikeOne() throws Exception {
 		when(ownerService.findByLastNameLike(anyString())).thenReturn(Collections.singletonList(owner1));
 
-		mockMvc.perform(get("/owners/find/results"))
+		mockMvc.perform(get("/owners"))
 				.andExpect(status().is3xxRedirection())
 				.andExpect(view().name("redirect:/owners/" + owner1.getId()));
 
@@ -109,7 +109,7 @@ class OwnerControllerTest {
 	void findManyByLastNameLikeNone() throws Exception {
 		when(ownerService.findByLastNameLike(anyString())).thenReturn(new ArrayList<>());
 
-		mockMvc.perform(get("/owners/find/results"))
+		mockMvc.perform(get("/owners"))
 				.andExpect(status().isOk())
 				.andExpect(view().name("owners/findOwners"))
 				.andExpect(model().attribute("owners", isNull()));
