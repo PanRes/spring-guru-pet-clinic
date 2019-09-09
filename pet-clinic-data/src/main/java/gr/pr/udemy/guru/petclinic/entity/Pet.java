@@ -12,7 +12,6 @@ import java.util.Set;
 @Setter()
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Builder
 @Entity
 @Table(name = "pets")
 public class Pet extends BaseEntity {
@@ -47,6 +46,18 @@ public class Pet extends BaseEntity {
 		this.petType = petType;
 		this.owner = owner;
 		this.birthDate = birthDate;
+	}
+
+	@Builder
+	public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visits) {
+		super(id);
+		this.name = name;
+		this.petType = petType;
+		this.owner = owner;
+		this.birthDate = birthDate;
+		if (visits != null) {
+			this.visits = visits;
+		}
 	}
 
 	public Boolean isTheSamePet(Pet pet) {
