@@ -57,7 +57,7 @@ public class Pet extends BaseEntity {
 		this.petType = petType;
 		this.owner = owner;
 		this.birthDate = birthDate;
-		if (visits != null) {
+		if (visits != null && visits.size() > 0) {
 			this.visits = visits;
 		}
 	}
@@ -68,6 +68,9 @@ public class Pet extends BaseEntity {
 				&& (this.birthDate == null && pet.getBirthDate() == null || this.birthDate != null && this.birthDate.equals(pet.getBirthDate()));
 	}
 
-
+	public void addVisit(Visit visit) {
+		visit.setPet(this);
+		visits.add(visit);
+	}
 
 }
