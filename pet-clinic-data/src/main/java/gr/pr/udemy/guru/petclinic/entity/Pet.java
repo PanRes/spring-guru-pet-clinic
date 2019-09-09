@@ -1,6 +1,7 @@
 package gr.pr.udemy.guru.petclinic.entity;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,6 +31,7 @@ public class Pet extends BaseEntity {
 	private Owner owner;
 
 	@Column(name = "birth_date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
 
 	@OneToMany(mappedBy = "pet", orphanRemoval = true, cascade = CascadeType.ALL)
@@ -61,9 +63,11 @@ public class Pet extends BaseEntity {
 	}
 
 	public Boolean isTheSamePet(Pet pet) {
-		return this.name.equalsIgnoreCase(pet.getName())
-				&& (this.petType == null && pet.getPetType() == null || this.petType.equals(pet.getPetType()))
-				&& (this.birthDate == null && pet.getBirthDate() == null || this.birthDate.equals(pet.getBirthDate()));
+		return (this.name == null && pet.getName() == null || this.name != null &&this.name.equalsIgnoreCase(pet.getName()))
+				&& (this.petType == null && pet.getPetType() == null || this.petType != null && this.petType.equals(pet.getPetType()))
+				&& (this.birthDate == null && pet.getBirthDate() == null || this.birthDate != null && this.birthDate.equals(pet.getBirthDate()));
 	}
+
+
 
 }

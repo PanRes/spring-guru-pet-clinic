@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "types")
+@Table(name = "pet_type")
 public class PetType extends BaseEntity {
 
 	@Column(name = "name", nullable = false)

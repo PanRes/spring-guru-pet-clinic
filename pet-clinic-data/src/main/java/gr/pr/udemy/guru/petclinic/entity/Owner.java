@@ -49,6 +49,7 @@ public class Owner extends Person {
 		this.city = city;
 		this.telephone = telephone;
 		if (pets != null) {
+			pets.forEach(pet -> pet.setOwner(this));
 			this.pets = pets;
 		}
 	}
@@ -58,10 +59,12 @@ public class Owner extends Person {
 	}
 
 	public void addPet(Pet pet) {
+		pet.setOwner(this);
 		this.pets.add(pet);
 	}
 
 	public void addPets(Set<Pet> pets) {
+		pets.forEach(pet -> pet.setOwner(this));
 		this.pets.addAll(pets);
 	}
 

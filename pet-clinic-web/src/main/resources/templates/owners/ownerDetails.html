@@ -49,7 +49,7 @@
             <dd
               th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}" /></dd>
             <dt>Type</dt>
-            <dd th:text="${pet.petType.name}" /></dd>
+            <dd th:text="${pet.petType != null ? pet.petType.name : null}" /></dd>
           </dl>
         </td>
         <td valign="top">
