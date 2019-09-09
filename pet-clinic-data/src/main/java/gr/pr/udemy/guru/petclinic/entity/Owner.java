@@ -64,4 +64,14 @@ public class Owner extends Person {
 	public void addPets(Set<Pet> pets) {
 		this.pets.addAll(pets);
 	}
+
+	public Boolean hasAlreadyPet(Pet pet) {
+		for (Pet pet1 : pets) {
+			if (pet1.isTheSamePet(pet)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

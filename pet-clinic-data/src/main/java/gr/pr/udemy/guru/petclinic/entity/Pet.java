@@ -49,4 +49,10 @@ public class Pet extends BaseEntity {
 		this.birthDate = birthDate;
 	}
 
+	public Boolean isTheSamePet(Pet pet) {
+		return this.name.equalsIgnoreCase(pet.getName())
+				&& (this.petType == null && pet.getPetType() == null || this.petType.equals(pet.getPetType()))
+				&& (this.birthDate == null && pet.getBirthDate() == null || this.birthDate.equals(pet.getBirthDate()));
+	}
+
 }
